@@ -39,7 +39,9 @@
 			  </thead>
 			  <tbody>
 			  	{% for row in rows %}
-			  		
+			  		{% if row.0 == 'Total number of confirmed cases in India' %}
+	  				{% elif row.0 == '# Few of the new cases have been reassigned States as per latest information' %}	
+		  			{% else %}				
 			  			<tr>
 		      			  <td style="width: 5px;">{{row.0}}</td>
 		  			      <td>{{row.1}}</td>
@@ -48,6 +50,7 @@
 		  			      <td>{{row.3}}</td>
 		  			      <td>{{row.4}}</td>
 		  			    </tr>
+	  			    {% endif %}	
 		  		{% endfor %}
 			  </tbody>
 			</table>
