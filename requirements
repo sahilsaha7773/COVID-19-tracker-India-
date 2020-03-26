@@ -13,3 +13,4 @@ soupsieve==2.0
 sqlparse==0.3.1
 tabulate==0.8.7
 urllib3==1.25.8
+whitenoise==5.0.1
