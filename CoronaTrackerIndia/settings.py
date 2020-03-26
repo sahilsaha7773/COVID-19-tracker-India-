@@ -25,7 +25,7 @@ SECRET_KEY = '^d%sgy^na3c42p-bz_0!n#t&r@(hzh7ml8qzbrp5y2=x(2+hne'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['covidind.herokuapp.com']
 
 
 # Application definition
