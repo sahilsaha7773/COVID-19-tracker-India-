@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>COVID-19 Cases in India</title>
+</head>
+<body>
+	<div class="container">
+		<h2 style="margin-top: 40px; margin-bottom: 20px">COVID-19 tracker India</h2>
+		<div class="card">
+		  <div class="card-body">
+		    <h5 class="card-title">Current data</h5>
+		    <h6 class="card-subtitle mb-2 text-muted">India</h6>
+		    <p class="card-text"><p>Total Cases: {{totcases}}</p>
+								<p>Passengers screened at airport: {{passatair}}</p>
+								<p>Active cases: {{active}}</p>
+								<p>Cured cases: {{cured}}</p>
+								<p>Deaths: {{deaths}}</p>
+								<p>Migrated COVID-19 Patient: {{mig}}</p>
+			</p>
+		    <a href="#" class="card-link">Card link</a>
+		    <a href="#" class="card-link">Another link</a>
+		  </div>
+		</div>
+		<div style="margin-top: 40px">
+			<h3>Cases in each state</h3>
+			<table class="table" style="margin-top: 20px;">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">S No.</th>
+			      <th scope="col">State</th>
+			      <th scope="col">Indians Confirmed</th>
+			      <th scope="col">Foreigners Confirmed</th>
+			      <th scope="col">Cured</th>
+			      <th scope="col">Deaths</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	{% for row in rows %}
+			  		
+			  			<tr>
+		      			  <td style="width: 5px;">{{row.0}}</td>
+		  			      <td>{{row.1}}</td>
+		  			      <td>{{row.2}}</td>
+		  			      <td>{{row.3}}</td>
+		  			      <td>{{row.3}}</td>
+		  			      <td>{{row.4}}</td>
+		  			    </tr>
+		  		{% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>	
+</body>
+</html>
