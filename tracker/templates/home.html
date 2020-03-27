@@ -79,7 +79,7 @@
 		    <h6 class="card-subtitle mb-2 text-muted">India</h6>
 		    <p class="card-text" style="display: inline;"><p style="display: inline;"><strong>Total Cases:</strong> <p class="counter" style="display: inline;">{{totcases}}</p>
 		    					<br>
-								<p style="display: inline;"><strong>Passengers screened at airport:</strong></p> <p class="counter" style="display: inline;">{{passatair}}</p>
+								<p style="display: inline;"><strong>Passengers screened at airport:</strong></p> <p class="counter" style="display: inline;">{{passatair}}</p>*
 								<br>
 								<p style="display: inline;"><strong>Active cases:</strong></p> <p class="counter" style="display: inline;">{{active}}</p>
 								<br>
@@ -87,7 +87,7 @@
 								<br>
 								<p style="display: inline;"><strong>Deaths:</strong></p> <p class="counter" style="display: inline;">{{deaths}}</p>
 								<br>
-								<p style="display: inline;"><strong>Migrated COVID-19 Patient:</strong></p> <p class="counter" style="display: inline;">{{mig}}</p><br><br>
+								<p style="display: inline;"><strong>Migrated COVID-19 Patient:</strong></p> <p class="counter" style="display: inline;">{{mig}}</p>*<br><br>
 								<p style="font-size: 15px;">*This data is as per the Ministry of Health and Family Welfare.</p>
 			</p>
 			
@@ -96,7 +96,7 @@
 			</div>
 		<div class="container">
 		<div style="margin-top: 40px">
-			<h3>Cases in each state</h3>
+			<h3>Cases in each state*</h3>
 			<div class="table-responsive">
 			<table class="table" style="margin-top: 20px;">
 			  <thead class="thead-dark">
@@ -146,7 +146,7 @@
 			            Counter: $(this).text()
 
 			        }, {
-			            duration: 5000,
+			            duration: 2500,
 			            easing: 'swing',
 			            step: function (now) {
 			                $(this).text(Math.ceil(now));

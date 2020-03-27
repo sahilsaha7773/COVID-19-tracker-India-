@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tracker',
+    'sorl.thumbnail',
+    'django.contrib.sites',
+    'newsletter',
 ]
 
 MIDDLEWARE = [
@@ -101,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+SITE_ID=1
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
