@@ -59,6 +59,15 @@
 	  display: none;
 	  text-align: center;
 	}
+	.red {
+		color: red;
+	}
+	.orange {
+		color: #ff9900;
+	}
+	.green {
+		color: #00c300;
+	}
 </style>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -72,23 +81,24 @@
 	  margin: -75px 0 0 -75px;"><img src="{% static "tracker/virus-svgrepo-com.svg" %}" style="vertical-align: middle; width: 60%; margin-left: auto;margin-right: auto; display: block;"></div>
 	<div id="main" style="display: none" class="animate-bottom">
 		<div style="margin: 40px">			
-		<h2 style="margin-top: 40px; margin-bottom: 20px">COVID-19 tracker India  <i class="fas fa-viruses"></i></h2>
-		<div class="card">
+		<h3 style="margin-top: 40px; margin-bottom: 20px">COVID-19 tracker India<br> <img style="    width: 55px; margin-top: 15px;" src="{% static "tracker/indian.svg" %}"></h3>
+		<div class="card text-white bg-light mb-3">
+		<div class="card-header" style="color: black;">COVID-19</div>
 		  <div class="card-body">
-		    <h5 class="card-title">Current data</h5>
+		    <h5 class="card-title" style="color: black;">Current data</h5>
 		    <h6 class="card-subtitle mb-2 text-muted">India</h6>
-		    <p class="card-text" style="display: inline;"><p style="display: inline;"><strong>Total Cases:</strong> <p class="counter" style="display: inline;">{{totcases}}</p>
+		    <p class="card-text" style="display: inline;"><p class="red" style="display: inline;"><strong>Total Cases:</strong> <p class="counter red" style="display: inline;">{{totcases}}</p>
 		    					<br>
-								<p style="display: inline;"><strong>Passengers screened at airport:</strong></p> <p class="counter" style="display: inline;">{{passatair}}</p>*
+								<p style="display: inline; color: #8080ff;"><strong>Passengers screened at airport:</strong></p> <p class="counter" style="display: inline; color: #8080ff;">{{passatair}}</p><p style="display: inline; color: #8080ff;">*</p>
 								<br>
-								<p style="display: inline;"><strong>Active cases:</strong></p> <p class="counter" style="display: inline;">{{active}}</p>
+								<p style="display: inline;" class="orange"><strong>Active cases:</strong></p> <p class="counter orange" style="display: inline;">{{active}}</p>
 								<br>
-								<p style="display: inline;"><strong>Cured cases:</strong></p> <p class="counter" style="display: inline;">{{cured}}</p>
+								<p style="display: inline;" class="green"><strong>Cured cases:</strong></p> <p class="counter green" style="display: inline;">{{cured}}</p>
 								<br>
-								<p style="display: inline;"><strong>Deaths:</strong></p> <p class="counter" style="display: inline;">{{deaths}}</p>
+								<p style="display: inline;color: gray;"><strong>Deaths:</strong></p> <p class="counter" style="display: inline; color: gray;">{{deaths}}</p>
 								<br>
-								<p style="display: inline;"><strong>Migrated COVID-19 Patient:</strong></p> <p class="counter" style="display: inline;">{{mig}}</p>*<br><br>
-								<p style="font-size: 15px;">*This data is as per the Ministry of Health and Family Welfare.</p>
+								<p style="display: inline; color:#ff6060; "><strong>Migrated COVID-19 Patient:</strong></p> <p class="counter" style="display: inline; color: #ff6060;">{{mig}}</p><p style="display: inline; color: #ff6060;">*</p><br><br>
+								<p style="font-size: 15px; color: gray;">*This data is as per the Ministry of Health and Family Welfare.</p>
 			</p>
 			
 		  </div>
@@ -96,9 +106,9 @@
 			</div>
 		<div class="container">
 		<div style="margin-top: 40px">
-			<h3>Cases in each state*</h3>
+			<h4>Cases in each state*</h4>
 			<div class="table-responsive">
-			<table class="table" style="margin-top: 20px;">
+			<table class="table table-striped" style="margin-top: 20px;">
 			  <thead class="thead-dark">
 			    <tr>
 			      <th scope="col">S No.</th>
@@ -112,7 +122,7 @@
 			  <tbody>
 			  	{% for row in rows %}
 			  		{% if row.0 == 'Total number of confirmed cases in India' %}
-	  				{% elif row.0 == '# Few of the new cases have been reassigned States as per latest information' %}	
+	  				{% elif row.1 == '' %}	
 		  			{% else %}				
 			  			<tr>
 		      			  <td style="width: 5px;">{{row.0}}</td>
