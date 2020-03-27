@@ -60,6 +60,8 @@
 	  text-align: center;
 	}
 </style>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 </head>
 <body onload="myFunction()">
 	<div id="loader" class="animated infinite pulse" style=" position: absolute;
@@ -75,13 +77,19 @@
 		  <div class="card-body">
 		    <h5 class="card-title">Current data</h5>
 		    <h6 class="card-subtitle mb-2 text-muted">India</h6>
-		    <p class="card-text"><p>Total Cases: {{totcases}}</p>
-								<p>Passengers screened at airport: {{passatair}}</p>
-								<p>Active cases: {{active}}</p>
-								<p>Cured cases: {{cured}}</p>
-								<p>Deaths: {{deaths}}</p>
-								<p>Migrated COVID-19 Patient: {{mig}}</p>
+		    <p class="card-text" style="display: inline;"><p style="display: inline;"><strong>Total Cases:</strong> <p class="counter" style="display: inline;">{{totcases}}</p>
+		    					<br>
+								<p style="display: inline;"><strong>Passengers screened at airport:</strong></p> <p class="counter" style="display: inline;">{{passatair}}</p>
+								<br>
+								<p style="display: inline;"><strong>Active cases:</strong></p> <p class="counter" style="display: inline;">{{active}}</p>
+								<br>
+								<p style="display: inline;"><strong>Cured cases:</strong></p> <p class="counter" style="display: inline;">{{cured}}</p>
+								<br>
+								<p style="display: inline;"><strong>Deaths:</strong></p> <p class="counter" style="display: inline;">{{deaths}}</p>
+								<br>
+								<p style="display: inline;"><strong>Migrated COVID-19 Patient:</strong></p> <p class="counter" style="display: inline;">{{mig}}</p>
 			</p>
+			
 		  </div>
 		</div>
 			</div>
@@ -132,8 +140,22 @@
 	function showPage() {
 	  document.getElementById("loader").style.display = "none";
 	  document.getElementById("main").style.display = "block";
+	  $('.counter').each(function () {
+			        $(this).prop('Counter',0).animate({
+			            Counter: $(this).text()
+
+			        }, {
+			            duration: 5000,
+			            easing: 'swing',
+			            step: function (now) {
+			                $(this).text(Math.ceil(now));
+			            }
+			        });
+			    });
 	}
 	</script>
-
+	<script>
+					
+			</script>
 </body>
 </html>

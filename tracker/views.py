@@ -20,12 +20,12 @@ def home(request):
 	for divs in mydivs:
 		count.append(extract_contents(divs.find_all('span')))
 		label.append(extract_contents(divs.find_all('div')))
-	passatair = count[0][0]
-	totcases = int(count[1][0])+int(count[2][0])+int(count[3][0])+int(count[4][0])
-	active = count[1][0]
-	cured = count[2][0]
-	deaths = count[3][0]
-	mig = count[4][0]
+	passatair = int(count[0][0].replace(',',''))
+	totcases = int(int(count[1][0].replace(',',''))+int(count[2][0].replace(',',''))+int(count[3][0].replace(',',''))+int(count[4][0].replace(',','')))
+	active = int(count[1][0].replace(',',''))
+	cured = int(count[2][0].replace(',',''))
+	deaths = int(count[3][0].replace(',',''))
+	mig = int(count[4][0].replace(',',''))
 	newDiv = soup.find_all("div", {"class": "content newtab"})
 	stats = [] 
 	all_rows=[]
