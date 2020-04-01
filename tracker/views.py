@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from tabulate import tabulate 
 import numpy as np 
 import requests
+from newsapi import NewsApiClient
 
 # Create your views here.
 def home(request):
@@ -45,7 +46,13 @@ def home(request):
 		for k in j:
 			d.append(extract_contents(k.find_all('td')))
 
+	newsapi = NewsApiClient(api_key='911a1ed9108a43dfafa3d04ab581f009')
 
+	# /v2/top-headlines
+	top_headlines_json = newsapi.get_top_headlines(q='coronavirus india',
+	                                          language='en',
+	                                          country='in')
+	top_headlines = top_headlines_json["articles"]
 	# for row in all_rows: 
 	# 	stat = extract_contents(row.find_all('td')) 
 	# 	if stat: 
@@ -70,6 +77,6 @@ def home(request):
 	# 	performance.append(int(row[2]) + int(row[3])) 
 
 	# table = tabulate(stats, headers=SHORT_HEADERS) 	
-	return render(request, 'home.html', {'totcases':totcases, 'active':active, 'cured':cured,'deaths':deaths, 'rows':d})
+	return render(request, 'home.html', {'totcases':totcases, 'active':active, 'cured':cured,'deaths':deaths, 'rows':d, 'top_headlines':top_headlines})
 
 

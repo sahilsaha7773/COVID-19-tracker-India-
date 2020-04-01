@@ -81,7 +81,7 @@
 	  margin: -75px 0 0 -75px;"><img src="{% static "tracker/virus-svgrepo-com.svg" %}" style="vertical-align: middle; width: 60%; margin-left: auto;margin-right: auto; display: block;"></div>
 	<div id="main" style="display: none" class="animate-bottom">
 		<div style="margin: 40px">			
-		<h3 style="margin-top: 40px; margin-bottom: 20px; color: white;">COVID-19 tracker India<br> <img style="    width: 55px; margin-top: 15px;" src="{% static "tracker/indian.svg" %}"></h3>
+		<h3 style="margin-top: 40px; margin-bottom: 20px; color: white;">COVID-19 Tracker India<br> <img style="    width: 55px; margin-top: 15px;" src="{% static "tracker/indian.svg" %}"></h3>
 		<div class="card-deck">
 			<div class="card text-white bg-light mb-3" style="background:linear-gradient(135deg, #F5515F 0%,#A1051D 100%); border: white;">
 				<div class="card-header" style="color: white;">Total cases</div>
@@ -120,7 +120,6 @@
     		</div>
 		</div>
 		<p style="font-size: 15px; color: white;">*This data is as per the Ministry of Health and Family Welfare.</p> 
-		<div class="container">
 		<div style="margin-top: 40px">
 			<h4 style="color: white;">Cases in each state*</h4>
 			<div class="table-responsive">
@@ -152,9 +151,31 @@
 			  </tbody>
 			</table>
 		</div>
-		</div>
-		<p style="color: white;">Made by Sahil Saha</p>
+		
 	</div>	
+	<div class="news" style="margin-top: 40px;">
+		<h4 style="color: white; margin-bottom: 40px;">Latest COVID-19 News and Articles</h4>
+		<div class="row" style="">
+			{% for news in top_headlines %}
+				{% if news.source.name != "Businessinsider.in" %}
+					<div class="col-sm-6" style="margin-bottom: 20px;">
+						<div class="card text-white bg-dark mb-3 h-100">
+							<img class="card-img-top" src="{{news.urlToImage}}"></img>
+				 			<div class="card-body">
+				   				 
+				    			 <h5 class="red card-title" style="display: inline; color: white; margin-bottom:20px;">{{news.title}}</h5>
+				    			 <br>
+								<p>{{news.description}}</p>	
+								 <a href="{{news.url}}" class="btn btn-secondary">Read more</a>					
+				  			</div>
+						</div>
+					</div>
+				{% endif %}	
+			{% endfor %}
+		</div>
+		<p style="font-size: 15px; color: white;">Powered by News API</p>
+	</div>
+	<p style="color: white;">Made by Sahil Saha</p>
 </div>
 	<script>
 	var myVar;
