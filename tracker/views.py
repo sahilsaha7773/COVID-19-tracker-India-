@@ -53,6 +53,24 @@ def home(request):
 	                                          language='en',
 	                                          country='in')
 	top_headlines = top_headlines_json["articles"]
+	URL3 = 'https://www.worldometers.info/coronavirus/'
+	responsen = requests.get(URL3).content
+	soup3 = BeautifulSoup(responsen, 'html.parser')
+	newc = (soup3.find_all("table",{"class":"main_table_countries"}))
+	nrows = []
+	for r in newc:
+		nrows.append(extract_contents(r.find_all("td")))
+	nrows = nrows[0]
+	ind = nrows.index('India')
+	newcases = nrows[ind+2]
+	newdeaths = nrows[ind+4]
+	seriouscases = nrows[ind+7]
+	if newcases=='':
+		newcases=0
+	if newdeaths=='':
+		newdeaths=0
+	if seriouscases=='':
+		seriouscases=0
 	# for row in all_rows: 
 	# 	stat = extract_contents(row.find_all('td')) 
 	# 	if stat: 
@@ -77,6 +95,6 @@ def home(request):
 	# 	performance.append(int(row[2]) + int(row[3])) 
 
 	# table = tabulate(stats, headers=SHORT_HEADERS) 	
-	return render(request, 'home.html', {'totcases':totcases, 'active':active, 'cured':cured,'deaths':deaths, 'rows':d, 'top_headlines':top_headlines})
+	return render(request, 'home.html', {'totcases':totcases, 'active':active, 'cured':cured,'deaths':deaths, 'rows':d, 'top_headlines':top_headlines, 'newcases':newcases,'newdeaths':newdeaths,'seriouscases':seriouscases})
 
 
