@@ -34,7 +34,6 @@ def home(request):
 	cured = int(int(counts[2].replace(',','')))
 	deaths = int(int(counts[1].replace(',','')))
 	active = totcases-cured-deaths
-	mig = int(count[4][0].replace(',',''))
 	newDiv = soup.find_all("div", {"class": "content newtab"})
 	stats = [] 
 	all_rows=[]
@@ -71,6 +70,6 @@ def home(request):
 	# 	performance.append(int(row[2]) + int(row[3])) 
 
 	# table = tabulate(stats, headers=SHORT_HEADERS) 	
-	return render(request, 'home.html', {'passatair':passatair,'totcases':totcases, 'active':active, 'cured':cured,'deaths':deaths,'mig':mig, 'rows':d})
+	return render(request, 'home.html', {'totcases':totcases, 'active':active, 'cured':cured,'deaths':deaths, 'rows':d})
 
 
