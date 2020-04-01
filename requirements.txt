@@ -8,6 +8,7 @@ django-newsletter==0.9
 gunicorn==20.0.4
 idna==2.9
 ldif3==3.1.1
+newsapi-python==0.2.6
 numpy==1.18.2
 Pillow==7.0.0
 python-card-me==0.9.3
