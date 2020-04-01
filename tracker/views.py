@@ -34,7 +34,7 @@ def home(request):
 	cured = int(int(counts[2].replace(',','')))
 	deaths = int(int(counts[1].replace(',','')))
 	active = totcases-cured-deaths
-	newDiv = soup.find_all("div", {"class": "content newtab"})
+	newDiv = soup.find_all("section", {"id": "state-data"})
 	stats = [] 
 	all_rows=[]
 

@@ -82,27 +82,44 @@
 	<div id="main" style="display: none" class="animate-bottom">
 		<div style="margin: 40px">			
 		<h3 style="margin-top: 40px; margin-bottom: 20px">COVID-19 tracker India<br> <img style="    width: 55px; margin-top: 15px;" src="{% static "tracker/indian.svg" %}"></h3>
-		<div class="card text-white bg-light mb-3">
-		<div class="card-header" style="color: black;">COVID-19</div>
-		  <div class="card-body">
-		    <h5 class="card-title" style="color: black;">Current data</h5>
-		    <h6 class="card-subtitle mb-2 text-muted">India</h6>
-		    <p class="card-text" style="display: inline;"><p class="red" style="display: inline;"><strong>Total Cases:</strong> <p class="counter red" style="display: inline;">{{totcases}}</p>
-		    					<br>
-								
-								<p style="display: inline;" class="orange"><strong>Active cases:</strong></p> <p class="counter orange" style="display: inline;">{{active}}</p>
-								<br>
-								<p style="display: inline;" class="green"><strong>Cured cases:</strong></p> <p class="counter green" style="display: inline;">{{cured}}</p>
-								<br>
-								<p style="display: inline;color: gray;"><strong>Deaths:</strong></p> <p class="counter" style="display: inline; color: gray;">{{deaths}}</p>
-								<br>
-								<br>
-								<p style="font-size: 15px; color: gray;">*This data is as per the Ministry of Health and Family Welfare.</p>
-			</p>
-			
-		  </div>
-		</div>
+		<div class="card-deck">
+			<div class="card text-white bg-light mb-3" style="background:linear-gradient(135deg, #F5515F 0%,#A1051D 100%); border: white;">
+				<div class="card-header" style="color: white;">Total cases</div>
+	 			<div class="card-body">
+	   				 
+	    			 <h3 class="counter red card-text" style="display: inline; color: white">{{totcases}}</h3>
+										
+	  			</div>
 			</div>
+			<div class="card text-white bg-light mb-3" style="background:linear-gradient(135deg, #fad961 0%,#f76b1c 100%); border: white;"> 
+				<div class="card-header" style="color: white;">Active Cases</div>
+	 			<div class="card-body">
+	   				 <!-- <h5 class="card-title" style="color: black;">Current data</h5>
+	    			 <h6 class="card-subtitle mb-2 text-muted">India</h6> -->
+	    			 <h3 class="counter" style="display: inline; color: white;">{{active}}</h3>
+				</div>
+	    			
+    		</div>
+    		<div class="card text-white bg-light mb-3" style="background:linear-gradient(135deg, #b1ea4d 0%,#459522 100%); border: white;">
+				<div class="card-header" style="color: white;">Cured</div>
+	 			<div class="card-body">
+	   				 <!-- <h5 class="card-title" style="color: black;">Current data</h5>
+	    			 <h6 class="card-subtitle mb-2 text-muted">India</h6> -->
+	    			 <h3 class="counter" style="display: inline; color: white;">{{cured}}</h3>
+				</div>
+	    			
+    		</div>
+    		<div class="card text-white bg-light mb-3" style="background:linear-gradient(135deg, #184e68 0%,#57ca85 100%); border: white;">
+				<div class="card-header" style="color: white;">Deaths</div>
+	 			<div class="card-body">
+	   				 <!-- <h5 class="card-title" style="color: black;">Current data</h5>
+	    			 <h6 class="card-subtitle mb-2 text-muted">India</h6> -->
+	    			 <h3 class="counter" style="display: inline; color: white;">{{deaths}}</h3>
+				</div>
+	    			
+    		</div>
+		</div>
+		<p style="font-size: 15px; color: gray;">*This data is as per the Ministry of Health and Family Welfare.</p> 
 		<div class="container">
 		<div style="margin-top: 40px">
 			<h4>Cases in each state*</h4>
@@ -113,7 +130,6 @@
 			      <th scope="col">S No.</th>
 			      <th scope="col">State</th>
 			      <th scope="col">Indians Confirmed</th>
-			      <th scope="col">Foreigners Confirmed</th>
 			      <th scope="col">Cured</th>
 			      <th scope="col">Deaths</th>
 			    </tr>
